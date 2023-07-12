@@ -1,20 +1,22 @@
-const http = require('http')
+const http = require("http");
+const fs = require("fs");
 
-const server =  http.createServer((req,res) => {
-    console.log(req)
-   if ('/home' == req.url) {
-     res.end('Welcome home')
-   } 
-   else if('/about' == req.url){
-    res.end('Welcome to About Us page')
-   }
-   else if('/node' == req.url){
-    res.end('Welcome to my Node Js project')
-   }
-   else{
-    res.end('Page is not Found')
-   }
-    
-})
+const server = http.createServer((req, res) => {
+  const url = req.url;
+  const method = req.method;
+  if( url === '/'){
+    res.write("<html>");
+    res.write("<head><title>Enter Message</title><head>");
+    res.write("<body><form action='/message' method ='POST'><input type='text' name='messae'><button>Send</button></from></body>");
+    res.write("</html>");
+    res.end();                                                               
+  }
+  if( url === '/message' && method === 'POST'){
+    fs.writeFileSync("message.txt", "Dummy")
+    res.statusCode = 302;
+    res.setHeader('Location', '/');
+    return res.end();
+  }
+});
 
-server.listen(4500);
+server.listen(4000);

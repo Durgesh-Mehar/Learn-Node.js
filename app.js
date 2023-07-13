@@ -1,9 +1,16 @@
-const http = require('http');
+const express = require('express');
 
-const routes = require('./routes');
+const app = express();
 
-console.log(routes.someText);
+app.use((req,res,next)=>{
+    console.log("This is a Midderwere 1");
+    next();
+})
 
-const server = http.createServer(routes.handler);
 
-server.listen(4000);
+app.use((req,res,next)=>{
+    console.log("This is a Midderwere 2");
+    res.send( { key1: value })
+})
+
+app.listen(5000);

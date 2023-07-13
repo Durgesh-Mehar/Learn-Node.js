@@ -1,0 +1,27 @@
+{
+  "name": "learn-node",
+  "version": "1.0.0",
+  "description": "Now i am learning Node ",
+  "main": "app.js",
+  "scripts": {
+    "test": "node ",
+    "start": "nodemon app.js",
+    "start-server": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Durgesh-Mehar/Learn-Node.js.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Durgesh Mehar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Durgesh-Mehar/Learn-Node.js/issues"
+  },
+  "homepage": "https://github.com/Durgesh-Mehar/Learn-Node.js#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
